@@ -1,0 +1,38 @@
+import java.util.Arrays;
+class search
+{
+public static void main(String [] args)
+   {
+    int a[] = {1,2,3,4,5,6,7,8,9,10};
+    Arrays.sort(a);
+     int key = 1;
+    System.out.println(binarysearch(a,key));
+  }
+ public static int binarysearch(int a[],int key)
+ {
+  int l=0; 
+  int h=a.length-1;
+  int m=0;
+  while(l <= h)
+  {
+     m = (l+h)/2;
+         if(key == a[m])
+           {
+             return m;
+           }
+         else if(key > a[m])
+           {
+             h=h;
+             l=m+1;
+           }
+         else if(key < a[m])
+           {
+             l=l;
+             h=m-1;
+           }
+       }
+    return -1;
+   }
+  
+}
+    

@@ -1,38 +1,40 @@
 import java.util.Arrays;
-class search
-{
-public static void main(String [] args)
-   {
-    int a[] = {1,2,3,4,5,6,7,8,9,10};
-    Arrays.sort(a);
-     int key = 1;
-    System.out.println(binarysearch(a,key));
-  }
- public static int binarysearch(int a[],int key)
- {
-  int l=0; 
-  int h=a.length-1;
-  int m=0;
-  while(l <= h)
-  {
-     m = (l+h)/2;
-         if(key == a[m])
-           {
-             return m;
-           }
-         else if(key > a[m])
-           {
-             h=h;
-             l=m+1;
-           }
-         else if(key < a[m])
-           {
-             l=l;
-             h=m-1;
-           }
-       }
+import java.util.Scanner;
+class Solution {
+    public int search(int[] nums, int target) {
+       
+        int left = 0;
+        int right=nums.length-1;
+        int mid = 0;
+        while(left <= right)
+        {
+            mid = (left + right)/2;
+            if(target == nums[mid])
+            {
+                return mid;
+            }
+            else if(nums[mid] <= target)
+            {
+                left = mid+1;
+            }
+            else 
+            {
+                right = mid-1;
+            }
+        }
     return -1;
-   }
-  
-}
+    }
+    public static void main(String[] args)
+    {
+     Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for(int i=0;i<n;i = i+1)
+        {
+            nums[i] = sc.nextInt();
+        } 
     
+        Arrays.sort(nums);
+        sc.close();
+    }
+}

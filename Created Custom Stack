@@ -1,0 +1,65 @@
+class Main {
+    public static void main(String[] args) {
+   CustomStack stack = new CustomStack();
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+    stack.push(40);
+    System.out.println(stack);
+    stack.display();
+    stack.pop();
+    System.out.println(stack.peek());
+    stack.display();
+    }
+}
+class CustomStack
+{
+  Node top;
+  int Size;
+  public void push(int value)
+  {
+      Node newNode = new Node(value);
+      if(top == null)
+      {
+          top = newNode;
+          Size++;
+      }
+      else
+      {
+          newNode.next = top;
+          top = newNode;
+          Size++;
+      }
+  }
+  public void pop()
+  {
+      if(top != null)
+      {
+          int value  = top.data;
+          top = top.next;
+          Size--;
+      }
+  }
+  public int peek()
+  {
+      return top.data;
+  }
+  public void  display()
+  {
+      Node temp = top;
+      while(temp != null)
+      {
+          System.out.println(temp.data);
+          temp = temp.next;
+      }
+  }
+
+}
+class Node {
+    int data;
+    Node next;
+    Node(int data)
+    {
+        this.data = data;
+    }
+}
